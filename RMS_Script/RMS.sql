@@ -1,5 +1,5 @@
 --Create event_type reference table
---drop table event_type;
+--drop table event_type cascade;
 create table event_type(
 	event_type varchar(50) primary key,
 	reinburstment decimal(4, 2),
@@ -7,33 +7,30 @@ create table event_type(
 );
 
 --Create grade_format reference table
---drop table grade_format;
+--drop table grade_format cascade;
 create table grade_format(
 	format_id int primary key,
 	format_desc text
 );
-
-alter table event_type
-add constraint fk_event_type_grade_format
-foreign key(format_id) references grade_format(format_id);
 
 --Populate grade_format with reference data
 --delete from grade_format;
 insert into grade_format values(0, 'letter');
 insert into grade_format values(1,'percent');
 insert into grade_format values(2,'pass/fail');
-insert into grade_format values(3,'presentation');
 
 --Populate event_type table with reference data
 --delete from event_type;
 insert into event_type values('University Courses', 0.8, 0), ('Seminars', 0.6, 2), 
 	('Certification Preparation Classes', 0.75, 1), ('Certification', 1.00, 1), 
-	('Technical Training', 0.9, 3); 
-insert into event_type values('Other', 0.30, default);
+	('Technical Training', 0.9, 2), ('Other', 0.30, default);
 
---truncate event_type;
---drop table event_type;
---select * from event_type;
+alter table event_type
+add constraint fk_event_type_grade_format
+foreign key(format_id) references grade_format(format_id);
+
+--alter table event_type
+--drop constraint fk_event_type_grade_format;
 
 --Create grade_letter reference table
 --drop table grade_letter;
@@ -130,7 +127,7 @@ create table benefits_coordinator(
 insert into benefits_coordinator values(0,'Hans', 'Zimmer', 'H_Zim', '123');
 
 --Create form table
---drop table form;
+drop table form;
 create table form(
 	form_id integer primary key,
 	urgent boolean,
@@ -147,10 +144,14 @@ create table form(
     costs decimal(6, 2) not null,
     reimbursement decimal(6, 2) not null,
     presentation boolean,
+    pass_fail_desc text,
     s_accept integer default 0,
     dh_accept integer default 0,
     bc_accept integer default 0
 );
 
-select * from form
-insert into form values(1, true, 'terp', 'first', 'last', 'department', '7-12-2012', '12-12-2012', '7:30am', '9:30pm', 'gradeF', 'gradeC', 12.50, 1000.00, true, 1, 1, 1);
+--select * from form
+--insert into form values(1, true, 'terp', 'first', 'last', 'department', '7-12-2012', 
+--						  '12-12-2012', '7:30am', '9:30pm', 'gradeF', 'gradeC', 12.50,
+--						  1000.00, true, 1, 1, 1
+--						  );
