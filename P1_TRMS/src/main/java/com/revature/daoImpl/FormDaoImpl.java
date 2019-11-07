@@ -24,9 +24,9 @@ public class FormDaoImpl implements FormDao{
 		ResultSet rs = stmt.executeQuery("select * from trms.form");
 		while(rs.next()) {
 			f = new Form(rs.getInt(1), rs.getBoolean(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),
-						 rs.getDate(5), rs.getDate(6), rs.getTime(7), rs.getTime(8), rs.getString(9), rs.getString(10),
-						 rs.getDouble(11), rs.getDouble(12), rs.getBoolean(13), rs.getInt(14), rs.getInt(15),
-						 rs.getInt(16)
+						 rs.getDate(7), rs.getDate(8), rs.getTime(9), rs.getTime(10), rs.getString(11), rs.getString(12),
+						 rs.getDouble(13), rs.getDouble(14), rs.getBoolean(15), rs.getInt(16), rs.getInt(17),
+						 rs.getInt(18)
 						 );
 			forms.add(f);
 		}
@@ -56,24 +56,28 @@ public class FormDaoImpl implements FormDao{
 	public void insertForm(Form form) throws SQLException {
 		//Declare connection fields
 		Connection conn = cf.getConnection();
-		String sql = "insert into trms.form values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "select insertform";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
-		//Set all form values except form_id since form_id is handled by database sequence
-		ps.setBoolean(1, form.isUrgent());
-		ps.setString(2, form.getEvent_type());
-		ps.setString(3, form.getfName());
-		ps.setString(4, form.getlName());
-		ps.setString(5, form.getDept());
-		ps.setDate(6, form.geteDate());
-		ps.setDate(7, form.geteDate());
-		ps.setTime(8, form.geteTime());
-		ps.setTime(9, form.geteTime());
-		ps.setString(10, form.getGradeFormat());
-		ps.setString(11, form.getGradeCutoff());
-		ps.setDouble(12, form.getCost());
-		ps.setDouble(13, form.getReimbursement());
-		ps.setBoolean(14, form.isPresentation());
+//		String sql = "insert into trms.form values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//		PreparedStatement ps = conn.prepareStatement(sql);
+//		
+//		//Set all form values except form_id since form_id is handled by database sequence
+//		ps.setBoolean(1, form.isUrgent());
+//		ps.setString(2, form.getEvent_type());
+//		ps.setString(3, form.getfName());
+//		ps.setString(4, form.getlName());
+//		ps.setString(5, form.getDept());
+//		ps.setDate(6, form.geteDate());
+//		ps.setDate(7, form.geteDate());
+//		ps.setTime(8, form.geteTime());
+//		ps.setTime(9, form.geteTime());
+//		ps.setString(10, form.getGradeFormat());
+//		ps.setString(11, form.getGradeCutoff());
+//		ps.setDouble(12, form.getCost());
+//		ps.setDouble(13, form.getReimbursement());
+//		ps.setBoolean(14, form.isPresentation());
+		
 		ps.execute();
 		
 		//commit the database changes
@@ -82,16 +86,16 @@ public class FormDaoImpl implements FormDao{
 		
 	}//End of method insertForm
 
-	public void updateForm(int form_id, String acceptType, int result) throws SQLException {
+	public void acceptForm(int form_id, String acceptType, int result) throws SQLException {
 		//Declare connection variables
 		Connection conn = cf.getConnection();
 		String sql = "update trms.form set ? = ? where form_id = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		//Set updated form values and update database
-		ps.setInt(1, form_id);
-		ps.setString(2, acceptType);
-		ps.setInt(3, result);
+		ps.setString(1, acceptType);
+		ps.setInt(2, result);
+		ps.setInt(3, form_id);
 		ps.execute();
 		
 		//Commit database changes
@@ -99,5 +103,23 @@ public class FormDaoImpl implements FormDao{
 		ps.execute();
 		
 	}//End of method updateForm
+	
+	public void failForm(int form_id, String acceptType, int result, String failDesc) throws SQLException{
+		//Declare connection variables
+		Connection conn = cf.getConnection();
+		String sql = "update trms.form set ? = ?, fail_desc = ? where form_id = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		//Set updated form values and update database
+		ps.setString(1, acceptType);
+		ps.setInt(2, result);
+		ps.setString(3, failDesc);
+		ps.setInt(4, form_id);
+		ps.execute();
+		
+		//Commit database changes
+		ps = conn.prepareStatement("commit");
+		ps.execute();
+	}
 	
 }//End of Class FormDaoImpl

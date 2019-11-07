@@ -144,10 +144,10 @@ create table form(
     costs decimal(6, 2) not null,
     reimbursement decimal(6, 2) not null,
     presentation boolean,
-    pass_fail_desc text,
     s_accept integer default 0,
     dh_accept integer default 0,
-    bc_accept integer default 0
+    bc_accept integer default 0,
+    fail_desc text
 );
 
 --select * from form

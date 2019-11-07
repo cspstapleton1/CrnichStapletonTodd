@@ -1,6 +1,7 @@
 package com.revature.beans;
 
 import java.sql.Time;
+import java.io.File;
 import java.sql.Date;
 
 public class Form {
@@ -19,6 +20,7 @@ public class Form {
 	private double cost;
 	private double reimbursement;
 	private boolean presentation;
+	private File attachment;
 	private int sAccept = 0;
 	private int dhAccept = 0;
 	private int bcAccept = 0;
@@ -28,6 +30,7 @@ public class Form {
 		// TODO Auto-generated constructor stub
 	}
 
+	// Form without attachment
 	public Form(int form_id, boolean urgent, String event_type, String fName, String lName, String dept, Date sDate,
 			Date eDate, Time sTime, Time eTime, String gradeFormat, String gradeCutoff, double cost,
 			double reimbursement, boolean presentation, int sAccept, int dhAccept, int bcAccept) {
@@ -47,6 +50,32 @@ public class Form {
 		this.cost = cost;
 		this.reimbursement = reimbursement;
 		this.presentation = presentation;
+		this.sAccept = sAccept;
+		this.dhAccept = dhAccept;
+		this.bcAccept = bcAccept;
+	}
+
+	// Constructor for forms with an attachment
+	public Form(int form_id, boolean urgent, String event_type, String fName, String lName, String dept, Date sDate,
+			Date eDate, Time sTime, Time eTime, String gradeFormat, String gradeCutoff, double cost,
+			double reimbursement, boolean presentation, File attachment, int sAccept, int dhAccept, int bcAccept) {
+		super();
+		this.form_id = form_id;
+		this.urgent = urgent;
+		this.event_type = event_type;
+		this.fName = fName;
+		this.lName = lName;
+		this.dept = dept;
+		this.sDate = sDate;
+		this.eDate = eDate;
+		this.sTime = sTime;
+		this.eTime = eTime;
+		this.gradeFormat = gradeFormat;
+		this.gradeCutoff = gradeCutoff;
+		this.cost = cost;
+		this.reimbursement = reimbursement;
+		this.presentation = presentation;
+		this.attachment = attachment;
 		this.sAccept = sAccept;
 		this.dhAccept = dhAccept;
 		this.bcAccept = bcAccept;
@@ -196,12 +225,13 @@ public class Form {
 		this.bcAccept = bcAccept;
 	}
 
-	@Override
 	public String toString() {
 		return "Form [form_id=" + form_id + ", urgent=" + urgent + ", event_type=" + event_type + ", fName=" + fName
 				+ ", lName=" + lName + ", dept=" + dept + ", sDate=" + sDate + ", eDate=" + eDate + ", sTime=" + sTime
 				+ ", eTime=" + eTime + ", gradeFormat=" + gradeFormat + ", gradeCutoff=" + gradeCutoff + ", cost="
-				+ cost + ", reimbursement=" + reimbursement + ", presentation=" + presentation + "]";
+				+ cost + ", reimbursement=" + reimbursement + ", presentation=" + presentation + ", attachment="
+				+ attachment.getName() + ", sAccept=" + sAccept + ", dhAccept=" + dhAccept + ", bcAccept=" + bcAccept
+				+ "]";
 	}
 
 }
