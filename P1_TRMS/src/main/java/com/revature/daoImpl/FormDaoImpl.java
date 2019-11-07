@@ -56,7 +56,7 @@ public class FormDaoImpl implements FormDao{
 	public void insertForm(Form form) throws SQLException {
 		//Declare connection fields
 		Connection conn = cf.getConnection();
-		String sql = "insert into trms.form values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into trms.form values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		//Set all form values except form_id since form_id is handled by database sequence
@@ -74,9 +74,6 @@ public class FormDaoImpl implements FormDao{
 		ps.setDouble(12, form.getCost());
 		ps.setDouble(13, form.getReimbursement());
 		ps.setBoolean(14, form.isPresentation());
-		ps.setInt(15, form.getsAccept());
-		ps.setInt(16, form.getDhAccept());
-		ps.setInt(17, form.getBcAccept());
 		ps.execute();
 		
 		//commit the database changes

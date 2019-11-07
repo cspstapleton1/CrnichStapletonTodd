@@ -3,7 +3,7 @@
 create table event_type(
 	event_type varchar(50) primary key,
 	reinburstment decimal(4, 2),
-	format_id int defualt 2
+	format_id int default 2
 );
 
 --Create grade_format reference table
