@@ -1,5 +1,5 @@
-.properties
-.metadata
+*.properties
+*.metadata
 
 # Compiled class file
 *.class
