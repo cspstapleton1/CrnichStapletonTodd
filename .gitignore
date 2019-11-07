@@ -1,5 +1,6 @@
-*.properties
+database.properties
 *.metadata
+*.settings
 
 # Compiled class file
 *.class
