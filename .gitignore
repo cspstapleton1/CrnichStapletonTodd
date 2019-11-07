@@ -1,6 +1,3 @@
-*.project
-*.classpath
-/target/*
 database.properties
 *.metadata
 *.settings
