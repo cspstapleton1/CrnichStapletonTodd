@@ -1,0 +1,41 @@
+Employee
+    int emp_id
+    String fName
+    String lName
+    String deptName
+    String user
+    String pw
+    int totalReimbursements default 1000 (Resets on new year)
+
+Supervisor
+    int emp_id
+    String fName
+    String lName
+    String deptName
+    String user
+    String pw
+    boolean isDeptHead
+
+Benefits Coordinator
+    int emp_id
+    String fName
+    String lName
+    String user
+    String pw
+
+Form
+    int form_id
+    boolean urgent
+    String event_type
+    String fName
+    String lName
+    String dept
+    date sDate
+    date eDate
+    time sTime
+    time eTime
+    String gradeFormat
+    String gradeCutoff
+    double cost
+    double reimbursement
+    boolean presentation
