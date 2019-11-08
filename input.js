@@ -69,4 +69,6 @@ return json;
 window.onload= function() {
  document.getElementById("reinbursmentSubmit").addEventListener("click",submitApp,false);
 // document.getElementById("vgFormSubmit").addEventListener("click", postVG,false);
+
+// document.getElementById("vgFormSubmit").addEventListener("click", postVG,false);
 }
