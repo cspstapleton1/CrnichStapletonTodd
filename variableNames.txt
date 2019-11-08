@@ -30,6 +30,9 @@ Form
     String fName
     String lName
     String dept
+	String email
+	String location
+	String justification
     date sDate
     date eDate
     time sTime
