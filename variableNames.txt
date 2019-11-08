@@ -39,3 +39,8 @@ Form
     double cost
     double reimbursement
     boolean presentation
+	File attachment
+	int sAccept
+	int dhAccept
+	int bcAccept
+	String failDesc
