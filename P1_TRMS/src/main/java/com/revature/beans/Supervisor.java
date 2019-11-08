@@ -1,7 +1,7 @@
 package com.revature.beans;
 
 public class Supervisor {
-	private int emp_id;
+	private int sup_id;
 	private String fName;
 	private String lName;
 	private String deptName;
@@ -13,11 +13,11 @@ public class Supervisor {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public Supervisor(int emp_id, String fName, String lName, String deptName, String user, String pw,
+	
+	public Supervisor(int sup_id, String fName, String lName, String deptName, String user, String pw,
 			boolean isDeptHead) {
 		super();
-		this.emp_id = emp_id;
+		this.sup_id = sup_id;
 		this.fName = fName;
 		this.lName = lName;
 		this.deptName = deptName;
@@ -26,12 +26,12 @@ public class Supervisor {
 		this.isDeptHead = isDeptHead;
 	}
 
-	public int getEmp_id() {
-		return emp_id;
+	public int getSup_id() {
+		return sup_id;
 	}
 
-	public void setEmp_id(int emp_id) {
-		this.emp_id = emp_id;
+	public void setSup_id(int sup_id) {
+		this.sup_id = sup_id;
 	}
 
 	public String getfName() {
@@ -84,7 +84,7 @@ public class Supervisor {
 
 	@Override
 	public String toString() {
-		return "Supervisor [emp_id=" + emp_id + ", fName=" + fName + ", lName=" + lName + ", deptName=" + deptName
+		return "Supervisor [sup_id=" + sup_id + ", fName=" + fName + ", lName=" + lName + ", deptName=" + deptName
 				+ ", user=" + user + ", pw=" + pw + ", isDeptHead=" + isDeptHead + "]";
 	}
 
