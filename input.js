@@ -1,7 +1,7 @@
 a = document.querySelectorAll("#picker")
 b = document.querySelector("#education_type")
 c = document.querySelector("#reinbursment_percentage")
-d = document.querySelectorAll("#grade_type")
+d = document.querySelectorAll("#gradeFormat")
 
 a[0].addEventListener("click", function(){
 c.value = 80
