@@ -75,10 +75,18 @@ create table grade_pass_fail(
 --delete from grade_pass_fail;
 insert into grade_pass_fail values('pass', true), ('fail', false);
 
+--Create sequence to increment emp_id
+create sequence if not exists emp_id_inc
+as int
+increment by 1
+minvalue 0
+start with 0;
+
+
 --Create employee table
---drop table employee;
+drop table employee;
 create table employee(
-	emp_id integer primary key,
+	emp_id integer primary key default nextval('emp_id_inc'),
 	fname text not null,
 	lname text not null,
  	deptname text not null,
@@ -86,6 +94,8 @@ create table employee(
 	pw varchar(20) not null,
 	reimbursement decimal(6, 2) not null default 1000.00
 );
+
+alter sequence emp_id_inc owned by employee.emp_id;
 
 --Create some employees
 --delete from employee;
@@ -126,15 +136,27 @@ create table benefits_coordinator(
 --delete from benefits_coordinator;
 insert into benefits_coordinator values(0,'Hans', 'Zimmer', 'H_Zim', '123');
 
+--Create sequence for form id
+--alter sequence form_id_inc owned by none;
+--drop sequence form_id_inc cascade;
+create sequence if not exists form_id_inc
+as int
+increment by 1
+minvalue 0
+start with 0;
+
 --Create form table
-drop table form;
+--drop table form cascade;
 create table form(
-	form_id integer primary key,
+	form_id int primary key default nextval('form_id_inc'),
 	urgent boolean,
     event_type text not null,
     first_name text not null,
     last_name text not null,
     department text not null,
+    email text not null,
+    loc text not null,
+    justification text not null,
     start_date date not null,
     end_date date not null,
     start_time time not null,
@@ -144,11 +166,25 @@ create table form(
     costs decimal(6, 2) not null,
     reimbursement decimal(6, 2) not null,
     presentation boolean,
+    filename text,
     s_accept integer default 0,
     dh_accept integer default 0,
     bc_accept integer default 0,
     fail_desc text
 );
+
+alter sequence form_id_inc owned by form.form_id;
+
+--create table to store files
+--drop table file cascade;
+create table file(
+	filename text primary key,
+	file bytea
+);
+
+alter table form
+add constraint fk_form_file
+foreign key(filename) references file(filename);
 
 --select * from form
 --insert into form values(1, true, 'terp', 'first', 'last', 'department', '7-12-2012', 

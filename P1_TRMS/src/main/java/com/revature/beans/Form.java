@@ -11,6 +11,9 @@ public class Form {
 	private String fName;
 	private String lName;
 	private String dept;
+	private String email;
+	private String location;
+	private String justification;
 	private Date sDate;
 	private Date eDate;
 	private Time sTime;
@@ -24,16 +27,18 @@ public class Form {
 	private int sAccept = 0;
 	private int dhAccept = 0;
 	private int bcAccept = 0;
+	private String failDesc;
 
 	public Form() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	// Form without attachment
-	public Form(int form_id, boolean urgent, String event_type, String fName, String lName, String dept, Date sDate,
-			Date eDate, Time sTime, Time eTime, String gradeFormat, String gradeCutoff, double cost,
-			double reimbursement, boolean presentation, int sAccept, int dhAccept, int bcAccept) {
+	
+	// Constructor for form without attachment
+	public Form(int form_id, boolean urgent, String event_type, String fName, String lName, String dept, String email,
+			String location, String justification, Date sDate, Date eDate, Time sTime, Time eTime, String gradeFormat,
+			String gradeCutoff, double cost, double reimbursement, boolean presentation, int sAccept, int dhAccept,
+			int bcAccept, String failDesc) {
 		super();
 		this.form_id = form_id;
 		this.urgent = urgent;
@@ -41,6 +46,9 @@ public class Form {
 		this.fName = fName;
 		this.lName = lName;
 		this.dept = dept;
+		this.email = email;
+		this.location = location;
+		this.justification = justification;
 		this.sDate = sDate;
 		this.eDate = eDate;
 		this.sTime = sTime;
@@ -53,12 +61,14 @@ public class Form {
 		this.sAccept = sAccept;
 		this.dhAccept = dhAccept;
 		this.bcAccept = bcAccept;
+		this.failDesc = failDesc;
 	}
-
-	// Constructor for forms with an attachment
-	public Form(int form_id, boolean urgent, String event_type, String fName, String lName, String dept, Date sDate,
-			Date eDate, Time sTime, Time eTime, String gradeFormat, String gradeCutoff, double cost,
-			double reimbursement, boolean presentation, File attachment, int sAccept, int dhAccept, int bcAccept) {
+	
+	// Constructor for form with an attachment
+	public Form(int form_id, boolean urgent, String event_type, String fName, String lName, String dept, String email,
+			String location, String justification, Date sDate, Date eDate, Time sTime, Time eTime, String gradeFormat,
+			String gradeCutoff, double cost, double reimbursement, boolean presentation, File attachment, int sAccept,
+			int dhAccept, int bcAccept, String failDesc) {
 		super();
 		this.form_id = form_id;
 		this.urgent = urgent;
@@ -66,6 +76,9 @@ public class Form {
 		this.fName = fName;
 		this.lName = lName;
 		this.dept = dept;
+		this.email = email;
+		this.location = location;
+		this.justification = justification;
 		this.sDate = sDate;
 		this.eDate = eDate;
 		this.sTime = sTime;
@@ -79,8 +92,9 @@ public class Form {
 		this.sAccept = sAccept;
 		this.dhAccept = dhAccept;
 		this.bcAccept = bcAccept;
+		this.failDesc = failDesc;
 	}
-
+	
 	public int getForm_id() {
 		return form_id;
 	}
@@ -225,13 +239,56 @@ public class Form {
 		this.bcAccept = bcAccept;
 	}
 
+	public File getAttachment() {
+		return attachment;
+	}
+
+	public void setAttachment(File attachment) {
+		this.attachment = attachment;
+	}
+
+	public String getFailDesc() {
+		return failDesc;
+	}
+
+	public void setFailDesc(String failDesc) {
+		this.failDesc = failDesc;
+	}
+
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getJustification() {
+		return justification;
+	}
+
+	public void setJustification(String justification) {
+		this.justification = justification;
+	}
+
+	@Override
 	public String toString() {
 		return "Form [form_id=" + form_id + ", urgent=" + urgent + ", event_type=" + event_type + ", fName=" + fName
-				+ ", lName=" + lName + ", dept=" + dept + ", sDate=" + sDate + ", eDate=" + eDate + ", sTime=" + sTime
+				+ ", lName=" + lName + ", dept=" + dept + ", email=" + email + ", location=" + location
+				+ ", justification=" + justification + ", sDate=" + sDate + ", eDate=" + eDate + ", sTime=" + sTime
 				+ ", eTime=" + eTime + ", gradeFormat=" + gradeFormat + ", gradeCutoff=" + gradeCutoff + ", cost="
 				+ cost + ", reimbursement=" + reimbursement + ", presentation=" + presentation + ", attachment="
 				+ attachment.getName() + ", sAccept=" + sAccept + ", dhAccept=" + dhAccept + ", bcAccept=" + bcAccept
-				+ "]";
+				+ ", failDesc=" + failDesc + "]";
 	}
 
-}
+}// End of Class Form
