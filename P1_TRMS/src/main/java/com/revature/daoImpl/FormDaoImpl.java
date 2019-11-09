@@ -61,6 +61,25 @@ public class FormDaoImpl implements FormDao {
 		Connection conn = cf.getConnection();
 		PreparedStatement ps = null;
 
+		// If user attached a file to the form, instantiate input stream and send
+		// the file to the database. On database, form.filename references file.filename
+		if (form.getAttachment() != null) {
+			try {
+				FileInputStream fis = new FileInputStream(form.getAttachment());
+				ps = conn.prepareStatement("insert into trms.file values(?, ?");
+				ps.setString(1, form.getAttachment().getName());
+				ps.setBinaryStream(2, fis, form.getAttachment().length());
+				ps.executeUpdate();
+				fis.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("Burning files in fio... try again");
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.out.println("How did you burn the IO? Try again...");
+				e.printStackTrace();
+			}
+		}
+		
 		// First, insert the basic form information into the database
 		String sql = "insert into trms.form(urgent, event_type, first_name, last_name, department,"
 					+" email, loc, justification,"
@@ -89,25 +108,6 @@ public class FormDaoImpl implements FormDao {
 		ps.setBoolean(17, form.isPresentation());
 
 		ps.execute();
-
-		// If user attached a file to the form, instantiate input stream and send
-		// the file to the database. On database, form.filename references file.filename
-		if (form.getAttachment() != null) {
-			try {
-				FileInputStream fis = new FileInputStream(form.getAttachment());
-				ps = conn.prepareStatement("insert into file values(?, ?");
-				ps.setString(1, form.getAttachment().getName());
-				ps.setBinaryStream(2, fis, form.getAttachment().length());
-				ps.executeUpdate();
-				fis.close();
-			} catch (FileNotFoundException e) {
-				System.out.println("Burning files in fio... try again");
-				e.printStackTrace();
-			} catch (IOException e) {
-				System.out.println("How did you burn the IO? Try again...");
-				e.printStackTrace();
-			}
-		}
 
 		// commit the database changes
 		ps = conn.prepareStatement("commit");

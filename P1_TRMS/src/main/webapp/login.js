@@ -8,7 +8,7 @@ function userLogin(){
     }
    xhr.open("POST","http://localhost:9998/P1_TRMS/login",true);
    var payload=jsonBuilder();
-    xhr.send(payload);
+   xhr.send(payload);
    
    }
    

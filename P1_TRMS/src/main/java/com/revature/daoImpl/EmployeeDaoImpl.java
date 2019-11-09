@@ -16,7 +16,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		//Declare connection variables
 		Connection conn = cf.getConnection();
 		Employee e = null;
-		String sql = "select from employee where id = ?";
+		String sql = "select from trms.employee where id = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, id);
 
@@ -32,7 +32,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public void insertEmployee(Employee e) throws SQLException {
 		//Declare connection variables
 		Connection conn = cf.getConnection();
-		String sql = "insert into employee values(?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into trms.employee values(?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 
 		//Insert data from employee into database
@@ -54,7 +54,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public Employee login(String user, String pw) throws SQLException {
 		//Declare connection variables
 		Connection conn = cf.getConnection();
-		String sql = "select from employee where user = ? and password = ?";
+		String sql = "select from trms.employee where user = ? and password = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		//Return Employee with login credentials. If login credentials 

@@ -1,6 +1,10 @@
+#Project specific ignores
 database.properties
 *.metadata
 *.settings
+*.classpath
+*.factorypath
+*.project
 
 # Compiled class file
 *.class
