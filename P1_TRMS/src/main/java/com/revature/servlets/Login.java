@@ -49,19 +49,10 @@ public class Login extends HttpServlet {
 			e = edi.login(name, password);
 			s = sdi.login(name, password);
 			bc = bcdi.login(name, password);
-			//If employee object 
-			if (e.getUser() != null) {
-				HttpSession session = request.getSession();
-				e = edi.getEmployeeById(e.getEmp_id());
-				session.setAttribute("usertype", "employee");
-				session.setAttribute("username", name);
-				session.setAttribute("Reimbursements", e.getTotalReimbursements());
-				session.setAttribute("id", e.getEmp_id());
-				session.setAttribute("lName", e.getlName());
-				session.setAttribute("fName", e.getfName());
-				session.setAttribute("Dept", e.getDeptName());
-				response.sendRedirect("forms");
-				request.getRequestDispatcher("forms.html").forward(request, response);
+			//If attempt did not match login credentials of any type of employee, redirect to login page 
+			if (e.getUser() == null && s.getUser() == null && bc.getUser() == null) {
+				out.print("Incorrect login credentials. Please try again.");
+				request.getRequestDispatcher("login.html").forward(request, response);
 			} 
 			 else if(s.getUser() != null){
 				HttpSession session = request.getSession();
@@ -89,8 +80,7 @@ public class Login extends HttpServlet {
 				response.sendRedirect("forms");
 			}
 			   else {
-				out.print("Incorrect login credentials. Please try again.");
-				request.getRequestDispatcher("login.html").forward(request, response);
+				
 			}
 			out.close();
 		} catch (SQLException e1) {

@@ -15,7 +15,7 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	@Override
 	public Supervisor login(String user, String pw) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "select sup_id, username, pw " 
+		String sql = "select sup_id, username " 
 					+"from trms.supervisor " 
 					+"where username = ? and pw = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
@@ -28,7 +28,6 @@ public class SupervisorDaoImpl implements SupervisorDao {
 			s = new Supervisor();
 			s.setSup_id(rs.getInt(1));
 			s.setUser(rs.getString(2));
-			s.setPw(rs.getString(3));
 		}
 		return s;
 	}// End of method login

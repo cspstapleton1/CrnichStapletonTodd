@@ -15,9 +15,9 @@ public class BCDaoImpl implements BCDao {
 	@Override
 	public BenefitsCoordinator login(String user, String pw) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "select bc_id, username, pw" 
+		String sql = "select bc_id, username" 
 					+"from trms.benefits_coordinator"
-					+"where username = ? and password = ?";
+					+"where username = ? and pw = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 
 		ps.setString(1, user);
@@ -28,7 +28,6 @@ public class BCDaoImpl implements BCDao {
 			bc = new BenefitsCoordinator();
 			bc.setBc_id(rs.getInt(1));
 			bc.setUser(rs.getString(2));
-			bc.setPw(rs.getString(3));
 		}
 		return bc;
 	}
@@ -37,7 +36,7 @@ public class BCDaoImpl implements BCDao {
 	public BenefitsCoordinator getBcByUser(String user) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "select from trms.benefits_coordinator" 
-					+"where user = ?";
+					+"where username = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 
 		ps.setString(1, user);
