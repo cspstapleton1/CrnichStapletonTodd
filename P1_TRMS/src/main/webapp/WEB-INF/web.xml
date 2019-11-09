@@ -5,6 +5,7 @@
     <display-name>FormServlet</display-name>
     <servlet-name>FormServlet</servlet-name>
     <servlet-class>com.revature.servlets.FormServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>FormServlet</servlet-name>
