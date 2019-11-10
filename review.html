@@ -62,26 +62,26 @@
           <td> <div id = "urgent"> </div></td> 
           </tr>
           <tr>
-              <td> event_type</td>  
+              <td> Education type</td>  
               <td> <div id = "event_type"> </div></td> 
               </tr>
               <tr>
-                  <td> fName</td>  
+                  <td> First Name</td>  
                   <td> <div id = "fName"> </div></td> 
                   </tr>
                   <tr>
-                      <td> lName</td>  
+                      <td> Last Name</td>  
                       <td> <div id = "lName"> </div></td> 
                       </tr>
-                      <td> dept</td>  
+                      <td> department</td>  
                       <td> <div id = "dept"> </div></td> 
                       </tr>
                       <tr> 
-                          <td> email</td>  
+                          <td> E-mail</td>  
                           <td> <div id = "email"> </div></td> 
                           </tr>
                           <tr>
-                              <td> location</td>  
+                              <td> Address</td>  
                               <td> <div id = "location"> </div></td> 
                               </tr>
                               <tr>
@@ -89,58 +89,43 @@
                                 <td> <div id = "justification"> </div></td> 
                                 </tr>
                                 <tr>
-                                  <td> sDate</td>  
+                                  <td> Start Date</td>  
                                   <td> <div id = "sDate"> </div></td> 
                                   </tr>
-                                  <td> eDate</td>  
+                                  <td> End Date</td>  
                                   <td> <div id = "eDate"> </div></td> 
                                   </tr>
                                   <tr> 
-                                      <td> sTime</td>  
+                                      <td> Start Time</td>  
                                       <td> <div id = "sTime"> </div></td> 
                                       </tr>
                                       <tr>
-                                          <td> eTime</td>  
+                                          <td> End Time</td>  
                                           <td> <div id = "eTime"> </div></td> 
                                           </tr>
                                           <tr>
-                                              <td> gradeFormat</td>  
-                                              <td> <div id = "gradeFormat"> </div></td> 
-                                              </tr>
+                                              <td> Grading Format</td>  
+                                              <td> <div id = "gradeFormat">Letter Grade </div></td> 
+                                              </tr> 
                                               <tr>
-                                                  <td> gradeCutoff</td>  
-                                                  <td> <div id = "gradeCutoff"> </div></td> 
+                                                  <td> Grade needed</td>  
+                                                  <td> <div id = "gradeCutoff"> C</div></td> 
                                                   </tr>
-                                                  <td> cost</td>  
-                                                  <td> <div id = "cost"> </div></td> 
+                                                  <td> total cost</td>  
+                                                  <td> <div id = "cost">15000 </div></td> 
                                                   </tr>
                                                   <tr>
-                                                    <td> reimbursement</td>  
-                                                    <td> <div id = "reimbursement"> </div></td> 
+                                                    <td> Reimbursement</td>  
+                                                    <td> <div id = "reimbursement"> 1000</div></td> 
                                                     </tr>
                                                     <td> presentation</td>  
-                                                    <td> <div id = "presentation"> </div></td> 
+                                                    <td> <div id = "presentation"> false</div></td> 
                                                     </tr>
                                                     <tr> 
-                                                        <td> attachment</td>  
-                                                        <td> <div id = "attachment"> </div></td> 
+                                                        <td> File</td>  
+                                                        <td> <div id = "attachment"> n/a</div></td> 
                                                         </tr>
-                                                        <tr>
-                                                            <td> sAccept</td>  
-                                                            <td> <div id = "sAccept"> </div></td> 
-                                                            </tr>
-                                                            <tr>
-                                                                <td> dhAccept</td>  
-                                                                <td> <div id = "dhAccept"> </div></td> 
-                                                                </tr>
-                                                                <tr>
-                                                                  <td> sAccept</td>  
-                                                                  <td> <div id = "sAccept"> </div></td> 
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td> failDesc</td>  
-                                                                    <td> <div id = "failDesc"> </div></td> 
-                                                                    </tr>
+                                                      
        </tbody>	
             </table>	
             <br/>
@@ -148,95 +133,30 @@
                   </div>
                   <form>
                   
-                  </p>
-                  <p><label> grade received</label>
-                    <label>
-                        <input name="group1" id = "grade_earned" type="radio" value="1" />
-                        <span>A</span>
-                      </label>            
-                      <label>
-                        <input name="group1" type="radio" value = "2"/>
-                        <span>B</span>
-                      </label>
-                      <label>
-                      <input name="group1" type="radio" value="1" />
-                      <span>C</span>
-                    </label>          
-                    <label>
-                      <input name="group1" type="radio" value = "2"/>
-                      <span>D</span>
-                    </label>
-                    <label>
-                    <input name="group1" type="radio" value="1" />
-                      <span>F</span>
-                    </label>
-                    <label>
-                        <input name="group1" type="radio" value = "2"/>
-                        <span>I</span>
-                      </label>
-                      <label>
-                          <input name="group1" type="radio" value = "2"/>
-                          <span>W</span>
-                        </label>
-                  </p>
-                  <p><label>Grading Type</label>
-                    <label>
-                      <input name="group1" type="radio" value="1" id = "grade_type" />
-                      <span>passed</span>
-                    </label>
-          
-                    <label>
-                      <input name="group1" type="radio" value = "2"/>
-                      <span>Failed</span>
-                    </label>
                 
-                  </p>
-                  <div class="file-field input-field">
-                        <label> File if needed </label>
-                        <div class="waves-effect waves-light btn" style = "float: right;">
-                          <span>File</span>
-                          <input type="file" id = "file">
-                       
-                        </div>
-                        
-                        <div class="file-path-wrapper">
-                          <input class="file-path validate" type="text">
-                        </div>
-                        
-                  <br/>
-                  <br/>
-                  <button class="waves-effect waves-light btn" type="submit">Sign in</button>
-
-                </form>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <form>
-                        <label for="currency-field">Enter Total Cost of Education</label>
-                        <input type="number" min="0.00" step="1" max="2500" value="0" />
-                      
-                  <p><label>Grading Type</label>
+                  <p><label>Approved/deny</label>
                     <label>
                       <input name="group1" type="radio" value="1" id = "grade_type" />
-                      <span>passed</span>
+                      <span>Approved</span>
                     </label>
           
                     <label>
-                      <input name="group1" type="radio" value = "2" id = "grade_type"/>
-                      <span>Failed</span>
+                      <input name="group1" type="radio" value = "2"/>
+                      <span>deny</span>
                     </label>
-        
-                  </p>
-                  
-                  <textarea id="description" class="materialize-textarea"></textarea>
-                  <label for="description">description of what you your plans are </label>
-         
+                    <textarea id="description" class="materialize-textarea"></textarea>
+                    <label for="description">explain the reason for the deny </label>
+                        
                   <br/>
                   <br/>
-                  <button class="waves-effect waves-light btn" type="submit">Sign in</button>
+                  <button class="waves-effect waves-light btn" type="submit">Submit</button>
 
                 </form>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+               
             </div>
 </div>
 </body> 
