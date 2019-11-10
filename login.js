@@ -6,12 +6,10 @@ function userLogin(){
     console.log(xhr.responseText);
     }
     }
-   xhr.open("POST","file:///C:/Users/Revature%20Associate/Documents/login.html",true);
+   xhr.open("POST","",true);
     var payload=jsonBuilder();
     xhr.send(payload);
-   
-   }
-   
+   } 
    function jsonBuilder() {
    var elements = document.getElementById("login").elements;
     var obj ={};
@@ -24,7 +22,6 @@ function userLogin(){
    console.log(json);
    return json;
    }
-   
    window.onload= function() {
     document.getElementById("loginSubmit").addEventListener("click",userLogin,false);
    }

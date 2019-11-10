@@ -68,6 +68,25 @@ return json;
 
 window.onload= function() {
  document.getElementById("reinbursmentSubmit").addEventListener("click",submitApp,false);
+ var fNames = document.querySelectorAll("#fName")
+var lNames = document.querySelector("#lName")
+var ids = document.querySelector("#id")
+var depts = document.querySelectorAll("#dept")
+var emails = document.querySelectorAll("#email")
+
+ var fName = '@Session["fName"]';
+ var lName = '@Session["lName"]';
+ var id = '@Session["id"]';
+ var dept = '@Session["dept"]';
+ var email = '@Session["email"]';
+ fNames.value = fName;
+ lNames.value = lName;
+ ids.value = id;
+ depts.value = dept;
+ emails.value = email;
+
+
+
 // document.getElementById("vgFormSubmit").addEventListener("click", postVG,false);
 
 // document.getElementById("vgFormSubmit").addEventListener("click", postVG,false);
