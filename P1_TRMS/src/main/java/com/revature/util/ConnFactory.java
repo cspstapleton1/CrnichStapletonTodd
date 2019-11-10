@@ -20,14 +20,18 @@ public class ConnFactory {
 	
 	public Connection getConnection() {
 		// Declarations for connection variables
+				
 				Connection conn = null;
 				String url = "jdbc:postgresql://todd-pega1019.cwn0gwrwwhuo.us-east-2.rds.amazonaws.com/postgres";
 				String user = "jtodd3";
 				String pw = "William3545!";
 				try {
+					Class.forName("org.postgresql.Driver");
 					conn = DriverManager.getConnection(url,user,pw);
 				} catch (SQLException e) {
 					System.out.println("Failed to create connection");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 				return conn;

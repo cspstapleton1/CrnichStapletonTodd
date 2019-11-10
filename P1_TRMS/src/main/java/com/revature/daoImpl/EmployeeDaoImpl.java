@@ -15,7 +15,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public Employee getEmployeeById(int id) throws SQLException {
 		//Declare connection variables
 		Connection conn = cf.getConnection();
-		Employee e = null;
+		Employee e = new Employee();
 		String sql = "select from trms.employee where emp_id = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, id);
@@ -64,15 +64,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		ps.setString(1, user);
 		ps.setString(2, pw);
 		ResultSet rs = ps.executeQuery();
-		Employee e = null;
+		Employee e = new Employee();
 		while(rs.next()) {
-			e = new Employee();
 			e.setEmp_id(rs.getInt(1));
 			e.setfName(rs.getString(2));
 			e.setlName(rs.getString(3));
 			e.setDeptName(rs.getString(4));
 			e.setUser(rs.getString(5));
-			e.setTotalReimbursements(rs.getDouble(7));
+			e.setTotalReimbursements(rs.getDouble(6));
 		}
 		return e;
 	}

@@ -2,7 +2,6 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,83 +9,69 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.BenefitsCoordinator;
 import com.revature.beans.Employee;
 import com.revature.beans.Supervisor;
-import com.revature.daoImpl.BCDaoImpl;
-import com.revature.daoImpl.EmployeeDaoImpl;
-import com.revature.daoImpl.SupervisorDaoImpl;
 
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public void init() throws ServletException{
-		try {
-			Class.forName("org.postgresql.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("In doPost");
-		EmployeeDaoImpl edi = new EmployeeDaoImpl();
-		SupervisorDaoImpl sdi = new SupervisorDaoImpl();
-		BCDaoImpl bcdi = new BCDaoImpl();
-		Employee e = null;
-		Supervisor s = null;
-		BenefitsCoordinator bc = null;
+		Employee e = new Employee();
+		Supervisor s = new Supervisor();
+		BenefitsCoordinator bc = new BenefitsCoordinator();
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		//request.getRequestDispatcher("forms.html").include(request, response);
 		
-		String name = request.getParameter("user");
-		String password = request.getParameter("pw");
+		ObjectMapper mapper = new ObjectMapper();
+		
+		e = mapper.readValue(request.getInputStream(), Employee.class);
+		System.out.println("Pre login: " + e.toString());
+		s.setUser(e.getUser());
+		s.setPw(e.getPw());
+		System.out.println("Pre login: " + s.toString());
+		bc.setUser(e.getUser());
+		bc.setPw(e.getPw());
+		System.out.println("Pre login: " + bc.toString() +"\n");
 
-		//Set login credentials. Only one of the three objects should return accurate login credentials
-		try {
-			e = edi.login(name, password);
-			s = sdi.login(name, password);
-			bc = bcdi.login(name, password);
-			//If attempt did not match login credentials of any type of employee, redirect to login page 
-			if (e.getUser() == null && s.getUser() == null && bc.getUser() == null) {
-				out.print("Incorrect login credentials. Please try again.");
-				request.getRequestDispatcher("login.html").forward(request, response);
-			} 
-			 else if(s.getUser() != null){
-				HttpSession session = request.getSession();
-				s = sdi.getSupervisorByUser(s.getUser());
-				session.setAttribute("usertype", "Manager");
-				session.setAttribute("username", name);
-				session.setAttribute("Reimbursements", e.getTotalReimbursements());
-				session.setAttribute("id", e.getEmp_id());
-				session.setAttribute("lName", e.getlName());
-				session.setAttribute("fName", e.getfName());
-				session.setAttribute("Dept", e.getDeptName());
-				response.sendRedirect("forms");
-				request.getRequestDispatcher("forms.html").forward(request, response);
-			}
-			  else if(bc.getUser() != null) {
-				HttpSession session = request.getSession();
-				bc = bcdi.getBcByUser(bc.getUser());
-				session.setAttribute("usertype", "chairman");
-				session.setAttribute("username", name);
-				session.setAttribute("Reimbursements", e.getTotalReimbursements());
-				session.setAttribute("id", e.getEmp_id());
-				session.setAttribute("lName", e.getlName());
-				session.setAttribute("fName", e.getfName());
-				session.setAttribute("Dept", e.getDeptName());
-				response.sendRedirect("forms");
-			}
-			   else {
-				
-			}
-			out.close();
-		} catch (SQLException e1) {
-			System.out.println("You broke it. Try again");
-			e1.printStackTrace();
+		e = ServletMethods.loginEmployee(e.getUser(), e.getPw());
+		s = ServletMethods.loginSupervisor(s.getUser(), s.getPw());
+		bc = ServletMethods.loginBC(bc.getUser(), bc.getPw());
+		
+		System.out.println("Post login: " + e.toString());
+		System.out.println("Post login: " + s.toString());
+		System.out.println("Post login: " + bc.toString());
+		
+		//If attempt did not match login credentials of any type of employee, redirect to login page 
+		if (e.getUser() != null) {
+			HttpSession session = request.getSession();
+			ServletMethods.setEmployeeCredentials(e, session);
+			response.sendRedirect("apps.html");
+			
+//			request.getRequestDispatcher("apps.html").forward(request, response);
+		} 
+		//If login credentials matched a supervisor, instantiate supervisor session credentials
+		 else if(s.getUser() != null){
+			 HttpSession session = request.getSession();
+			 s = ServletMethods.getSupervisor(s);
+			 ServletMethods.setSupervisorCredentials(s, session);
+			 response.sendRedirect("apps.html");
 		}
+		//If login credentials match a benefits coordinator, instantiate bc session credentials
+		  else if(bc.getUser() != null) {
+			HttpSession session = request.getSession();
+			bc =  ServletMethods.getBC(bc);
+			ServletMethods.setBCCredentials(bc, session);
+			response.sendRedirect("apps.html");
+		}
+		//If login credentials match an employee, instantiate employee session credentials
+		   else {
+				out.print("<p>Incorrect login credentials. Please try again.</p>");
+				request.getRequestDispatcher("login.html").forward(request, response);
+		}
+		out.close();
 	}// End of method doPost
 
 }//End of Servlet Login 

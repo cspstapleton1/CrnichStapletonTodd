@@ -12,9 +12,8 @@
  </head>
  <body class = "grey darken-3"><div class = "center card #004d40 teal darken-4 blue-text text-lighten-1">
         <span class = "orange-text draken-4 card green lighten-4 center"><h1>Welcome</h1></span>
-        <span class = "red-text darken-4 center"><h4>to the employee reinbursment</h4></span>
-        <p class = "red-text darken-4 center" style = "padding: 3%;">please sign in to start getting your
-        deserved compation</p>
+        <span class = "red-text darken-4 center"><h4>to the employee reimbursement</h4></span>
+        <p class = "red-text darken-4 center" style = "padding: 3%;">please sign in to see our compensation programs</p>
         <div class = "card green lighten-3 white-text" >
             
                        
@@ -29,14 +28,13 @@
         <div class="row">
             <div class="container" id="formContainer">
     
-              <form class="form-signin" method="POST" id="login" role="form">
+              <form class="form-signin" method="POST" action="login" id="login" role="form">
                 <h3 class="form-signin-heading">Please sign in</h3>
                 <a href="#" id="flipToRecover" class="flipLink">
                   <div id="triangle-topright"></div>
                 </a>
                 <input type="text" class="form-control" name="user" id="user" placeholder="Username" required autofocus>
-                <input type="password" class="form-control" name="pw" id="pw" placeholder="Password" required>
-              
+                <input type="text" class="form-control" name="pw" id="pw" placeholder="Password" required autofocus>
               </form>
           <button class="waves-effect waves-light btn" id = "loginSubmit" type="submit">Sign in</button>
               

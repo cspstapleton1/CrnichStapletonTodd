@@ -3,7 +3,7 @@ function userLogin(){
     var xhr= new XMLHttpRequest();
     xhr.onreadystatechange= function() {
    if(xhr.readyState==4 && xhr.status==200){
-    console.log(xhr.responseText);
+      console.log(xhr.responseText);
     }
     }
    xhr.open("POST","http://localhost:9998/P1_TRMS/login",true);
@@ -15,7 +15,7 @@ function userLogin(){
    function jsonBuilder() {
    var elements = document.getElementById("login").elements;
     var obj ={};
-    for(var i = 0 ; i < elements.length-1; i++){
+    for(var i = 0 ; i < elements.length; i++){
        var item = elements.item(i);
        obj[item.name] = item.value;
        console.log(obj);   

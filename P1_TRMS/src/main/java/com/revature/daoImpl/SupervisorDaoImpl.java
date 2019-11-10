@@ -23,9 +23,8 @@ public class SupervisorDaoImpl implements SupervisorDao {
 		ps.setString(1, user);
 		ps.setString(2, pw);
 		ResultSet rs = ps.executeQuery();
-		Supervisor s = null;
+		Supervisor s = new Supervisor();
 		while (rs.next()) {
-			s = new Supervisor();
 			s.setSup_id(rs.getInt(1));
 			s.setUser(rs.getString(2));
 		}
@@ -41,7 +40,7 @@ public class SupervisorDaoImpl implements SupervisorDao {
 
 		ps.setString(1, user);
 		ResultSet rs = ps.executeQuery();
-		Supervisor s = null;
+		Supervisor s = new Supervisor();
 		while (rs.next()) {
 			s = new Supervisor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getBoolean(7));
@@ -59,9 +58,8 @@ public class SupervisorDaoImpl implements SupervisorDao {
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, dept);
 		ResultSet rs = ps.executeQuery();
-		Supervisor s = null;
+		Supervisor s = new Supervisor();
 		while (rs.next()) {
-			s = new Supervisor();
 			s.setfName(rs.getString(1));
 			s.setlName(rs.getString(2));
 		}

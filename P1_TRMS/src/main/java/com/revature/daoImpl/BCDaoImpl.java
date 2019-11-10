@@ -15,17 +15,16 @@ public class BCDaoImpl implements BCDao {
 	@Override
 	public BenefitsCoordinator login(String user, String pw) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "select bc_id, username" 
-					+"from trms.benefits_coordinator"
+		String sql = "select bc_id, username " 
+					+"from trms.benefits_coordinator "
 					+"where username = ? and pw = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 
 		ps.setString(1, user);
 		ps.setString(2, pw);
 		ResultSet rs = ps.executeQuery();
-		BenefitsCoordinator bc = null;
+		BenefitsCoordinator bc = new BenefitsCoordinator();
 		while (rs.next()) {
-			bc = new BenefitsCoordinator();
 			bc.setBc_id(rs.getInt(1));
 			bc.setUser(rs.getString(2));
 		}
@@ -41,7 +40,7 @@ public class BCDaoImpl implements BCDao {
 
 		ps.setString(1, user);
 		ResultSet rs = ps.executeQuery();
-		BenefitsCoordinator bc = null;
+		BenefitsCoordinator bc = new BenefitsCoordinator();
 		while (rs.next()) {
 			bc = new BenefitsCoordinator(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 					rs.getString(5));
@@ -57,9 +56,8 @@ public class BCDaoImpl implements BCDao {
 		PreparedStatement ps = conn.prepareStatement(sql);
 
 		ResultSet rs = ps.executeQuery();
-		BenefitsCoordinator bc = null;
+		BenefitsCoordinator bc = new BenefitsCoordinator();
 		while (rs.next()) {
-			bc = new BenefitsCoordinator();
 			bc.setfName(rs.getString(1));
 			bc.setlName(rs.getString(2));
 		}
