@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+    <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>FormServlet</display-name>
+    <servlet-name>FormServlet</servlet-name>
+    <servlet-class>com.revature.servlets.FormServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormServlet</servlet-name>
+    <url-pattern>/rmbForm</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.revature.servlets.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>com.revature.servlets.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+</web-app>

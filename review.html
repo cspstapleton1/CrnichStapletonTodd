@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <html lang="en"> 
+  <head>
+        <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+ <meta http-equiv="content-type" content="text/html; charset=utf-8">
+ <title>user forms</title> 
+ </head>
+ <body class = "grey darken-3"><div class = "center card #004d40 teal darken-4 blue-text text-lighten-1">
+        <span class = "orange-text draken-4 card green lighten-4 center"><h1>Welcome</h1></span>
+        <span class = "red-text darken-4 center"><h4>to the employee reinbursment</h4></span>
+        <p class = "red-text darken-4 center" style = "padding: 3%;">please use the forms below to your proper compusation</p>
+        <div class = "card green lighten-3 white-text" >
+            
+            <div class = "container">
+                <br/>
+                <nav class = " center">
+                        <div class = "card #ff6f00 amber darken-4 blue-text text-lighten-1 ">
+                                <span>  <a class = " ligthen-4 white-text text-darken-3 "
+                                    style="padding-right:25%;  font-size: large;" href = "forms.html"> apply</a>
+                                    <span>  <a class = " ligthen-4 white-text text-darken-3 "
+                                        style="padding-right:25%;  font-size: large;" href = "apps.html"> my Apps</a>
+                   </span>
+                   <span> <a class = " white-text  text-darken-3 "href = "login.html"
+                    style="font-size: large;"> logout </a>
+                   </span>  
+                   </div>               
+                       </nav>
+                       <br/>  
+                     
+</div>                     
+                                
+            </div>
+            
+</div >
+<div class="#e0f2f1 teal lighten-5"> 
+    
+    <br/>
+<div class="container" >
+        <div class = "container"> 
+        <div class="row">
+            <div class="container" id="formContainer">      
+              
+              <table id="mytable" class="table table-bordred table-striped">
+             
+                    <thead>                  
+                    
+                    <th>Info type</th>                  
+                     <th>Employee's info</th>                    
+                    </thead>
+     <tbody>     
+     <tr>
+      <td> form id</td>  
+      <td> <div id = "form_id"> </div></td> 
+      </tr>
+      <tr> 
+          <td> urgent</td>  
+          <td> <div id = "urgent"> </div></td> 
+          </tr>
+          <tr>
+              <td> Education type</td>  
+              <td> <div id = "event_type"> </div></td> 
+              </tr>
+              <tr>
+                  <td> First Name</td>  
+                  <td> <div id = "fName"> </div></td> 
+                  </tr>
+                  <tr>
+                      <td> Last Name</td>  
+                      <td> <div id = "lName"> </div></td> 
+                      </tr>
+                      <td> department</td>  
+                      <td> <div id = "dept"> </div></td> 
+                      </tr>
+                      <tr> 
+                          <td> E-mail</td>  
+                          <td> <div id = "email"> </div></td> 
+                          </tr>
+                          <tr>
+                              <td> Address</td>  
+                              <td> <div id = "location"> </div></td> 
+                              </tr>
+                              <tr>
+                                <td> justification</td>  
+                                <td> <div id = "justification"> </div></td> 
+                                </tr>
+                                <tr>
+                                  <td> Start Date</td>  
+                                  <td> <div id = "sDate"> </div></td> 
+                                  </tr>
+                                  <td> End Date</td>  
+                                  <td> <div id = "eDate"> </div></td> 
+                                  </tr>
+                                  <tr> 
+                                      <td> Start Time</td>  
+                                      <td> <div id = "sTime"> </div></td> 
+                                      </tr>
+                                      <tr>
+                                          <td> End Time</td>  
+                                          <td> <div id = "eTime"> </div></td> 
+                                          </tr>
+                                          <tr>
+                                              <td> Grading Format</td>  
+                                              <td> <div id = "gradeFormat">Letter Grade </div></td> 
+                                              </tr> 
+                                              <tr>
+                                                  <td> Grade needed</td>  
+                                                  <td> <div id = "gradeCutoff"> C</div></td> 
+                                                  </tr>
+                                                  <td> total cost</td>  
+                                                  <td> <div id = "cost">15000 </div></td> 
+                                                  </tr>
+                                                  <tr>
+                                                    <td> Reimbursement</td>  
+                                                    <td> <div id = "reimbursement"> 1000</div></td> 
+                                                    </tr>
+                                                    <td> presentation</td>  
+                                                    <td> <div id = "presentation"> false</div></td> 
+                                                    </tr>
+                                                    <tr> 
+                                                        <td> File</td>  
+                                                        <td> <div id = "attachment"> n/a</div></td> 
+                                                        </tr>
+                                                      
+       </tbody>	
+            </table>	
+            <br/>
+            <br/>
+                  </div>
+                  <form>
+                  
+                
+                  <p><label>Approved/deny</label>
+                    <label>
+                      <input name="group1" type="radio" value="1" id = "grade_type" />
+                      <span>Approved</span>
+                    </label>
+          
+                    <label>
+                      <input name="group1" type="radio" value = "2"/>
+                      <span>deny</span>
+                    </label>
+                    <textarea id="description" class="materialize-textarea"></textarea>
+                    <label for="description">explain the reason for the deny </label>
+                        
+                  <br/>
+                  <br/>
+                  <button class="waves-effect waves-light btn" type="submit">Submit</button>
+
+                </form>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+               
+            </div>
+</div>
+</body> 
+<div>
+    </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+<footer class ="red lighten-4">
+
+        <div class = "card #f9fbe7 lime lighten-5 center">
+                <br/>
+           
+                <span>  <a class = "black-text text-lighten-1 "href = "apps.html">review</a></span>
+                <span>  <a style =" padding-left: 25%;" class = "black-text text-lighten-1 "href = "forms.html">apply</a></span>
+             <span><small style =" padding-left: 25%;">Authors: Ryan, James and Lucy</small></span>
+             </span>  
+             <br/>
+             <br/>
+    
+
+            </div>  
+        </div>    
+          
+             
+</footer> <p style="font-size: 1px;">.
+  <script type="text/javascript" src="review.js">
+
+
+        
+</script>
+ </html>
