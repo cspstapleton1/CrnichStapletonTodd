@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
 		
 		//If attempt did not match login credentials of any type of employee, redirect to login page 
 		if (e.getUser() != null) {
-			HttpSession session = request.getSession();
+			HttpSession session = request.getSession(true);
 			ServletMethods.setEmployeeCredentials(e, session);
 			response.sendRedirect("apps.html");
 			
