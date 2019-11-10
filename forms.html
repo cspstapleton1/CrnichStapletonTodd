@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <html lang="en"> 
+  <head>
+        <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+ <meta http-equiv="content-type" content="text/html; charset=utf-8">
+ <title>user forms</title> 
+ </head>
+ <body class = "grey darken-3"><div class = "center card #004d40 teal darken-4 blue-text text-lighten-1">
+        <span class = "orange-text draken-4 card green lighten-4 center"><h1>Welcome</h1></span>
+        <span class = "red-text darken-4 center"><h4>to the employee reinbursment</h4></span>
+        <p class = "red-text darken-4 center" style = "padding: 3%;">please use the forms below to your proper compusation</p>
+        <div class = "card green lighten-3 white-text" >
+            
+            <div class = "container">
+                <br/>
+                <nav class = " center">
+                        <div class = "card #ff6f00 amber darken-4 blue-text text-lighten-1 ">
+                      <span>  <a class = " ligthen-4 white-text text-darken-3 "
+                        style="padding-right:25%;  font-size: large;" href = "apps.html"> review</a>
+                   </span>
+                   <span> <a class = " white-text  text-darken-3 "href = "login.html"
+                    style="font-size: large;"> logout </a>
+                   </span>  
+                   </div>   
+                   
+                    
+                       </nav>
+                       <br/>
+                  
+                       <span class = "card #ff6f00 amber darken-4 white-text text-darken-4"
+                       style="font-size: 16px; padding: 2px;"  >please make a selection</span>
+</div>                     
+                                
+            </div>
+            
+            <form action="james.java" id = "selection">
+                    <p>
+                      <label>
+                        <input id="picker" name="group1" type="radio" value="1" />
+                        <span>University Courses 80%</span>
+                      </label>
+            
+                      <label>
+                        <input id="picker" name="group1" type="radio" value = "2"/>
+                        <span>Seminars 60%</span>
+                      </label>
+                  
+                      <label>
+                        <input id="picker" class="with-gap" name="group1" value="3" type="radio"  />
+                        <span> Certification Preparation Classes 75%</span>
+                      </label>
+                   
+                      <label>
+                            <input id="picker" name="group1" type="radio" value="4"/>
+                            <span> Certification 100%</span>
+                          </label>
+                          <label>
+                                <input id="picker" name="group1" type="radio" value ="5"  />
+                                <span> Technical Training 90%</span>
+                              </label>
+                              <label>
+                                    <input id="picker" name="group1" type="radio" value="6"  />
+                                    <span>other 30%</span>
+                                  </label>
+                    </p>
+                  </form>
+            
+</div >
+<div class="#e0f2f1 teal lighten-5"> 
+    
+    <br/>
+<div class="container" >
+        <div class = "container"> 
+        <div class="row">
+            <div class="container" id="formContainer">      
+
+              <br/>
+              
+              <div class="row">
+                  
+                    <form class="col s12">
+                            <h3 class="form-signin-heading">Crouse Information</h3>
+                            <label>Start Date</label>
+                            <input required="required" id="start_date" type="date" class="validate">
+                            <label>End Date</label>
+                            <input required="required" id="end_date" type="date" class="validate">
+                            <label>start time</label>
+                            <input id="start_time" type="time" class="validate">
+                            <label>end time</label>
+                            <input id="end_time" type="time" class="validate">
+                            <label>Address of the school</label>
+                            <input required="required id="first_name" type="text" class="validate">
+                            <div class="file-field input-field">
+                                    <label> File if needed </label>
+                                    <div class="waves-effect waves-light btn" style = "float: right;">
+                                      <span>File</span>
+                                      <input type="file" id = "file">
+                                   
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                      <input class="file-path validate" type="text">
+                                    </div>
+                                  </div>
+                            <div class="row">
+                      
+                        <div class="input-field col s6">
+                                <label>First Name</label>
+                                <input required="required id="first_name" type="text" class="validate">
+                                
+                         
+                        </div>
+                        <div class="input-field col s6">
+                            
+                          <input id="last_name" type="text" class="validate">
+                          <label for="last_name">Last Name</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                                <label>Department</label>
+                          <input   id = "department"type="text" class="validate">
+                     
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                       
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input id="email" type="email" class="validate">
+                          <label for="email">Email to revice updates to</label>
+                        </div>
+                   
+
+                       
+                        <p><label>Grading Type</label>
+                            <label>
+                              <input name="group1" type="radio" value="1" id = "grade_type" />
+                              <span>grade</span>
+                            </label>
+                  
+                            <label>
+                              <input name="group1" type="radio" value = "2"/>
+                              <span>Pass/Fail</span>
+                            </label>
+                        
+                     
+                          </p>
+                          <p><label>Presention</label>
+                            <label>
+                              <input name="group1" type="radio" value="true" id = "grade_type" />
+                              <span>yes</span>
+                            </label>
+                  
+                            <label>
+                              <input name="group1" type="radio" value = "false"/>
+                              <span>no</span>
+                            </label>
+                        
+                     
+                          </p>
+                            
+                      </div>
+                      <div class="row">
+                            <form class="col s12">
+                              <div class="row">
+                                <div class="input-field col s12">
+                                  <textarea id="description" class="materialize-textarea"></textarea>
+                                  <label for="description">description of what you your plans are </label>
+                                </div>
+                              </div>
+                              <label for="currency-field">Enter Total Cost of Education</label>
+                              <input type="number" id ="cost" min="0.00" step="1" max="2500" value="0" />
+                              <label>type of Education</label>
+                              <input type="text" id ="education_type"  />
+                              <label >reinbursment_percentage</label>
+                              <input type="text" id ="reinbursment_percentage" value="0" />
+                          </div>
+                          <button class="waves-effect waves-light btn" value = "submit" type="submit">Submit</button>
+                    </form>
+                  </div>
+    
+            </div>
+</div>
+</body> 
+<div>
+    </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+<footer class ="red lighten-4">
+
+        <div class = "card #f9fbe7 lime lighten-5 center">
+                <br/>
+           
+  
+                <span>  <a class = "black-text text-lighten-1 "href = "apps.html">review</a></span>
+                <span>  <a style =" padding-left: 25%;" class = "black-text text-lighten-1 "href = "forms.html">apply</a></span>
+             <span><small style =" padding-left: 25%;">Authors: Ryan, James and Lucy</small></span>
+             </span>  
+             <br/>
+             <br/>
+    
+
+            </div>  
+        </div>    
+          
+             
+</footer> <p style="font-size: 1px;">.
+        <script type="text/javascript" src="input.js">
+
+        
+</script>
+ </html>
